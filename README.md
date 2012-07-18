@@ -22,7 +22,7 @@ Main recipe is `jackrabbit::standalone`.
 All the attributes below are namespaced under `node[:jackrabbit]`, so `:version` is accessible
 via `node[:jackrabbit][:version]` or `node.jackrabbit.version` and so on.
 
-* `:version`: Jackrabbit version to install (default: `"2.4.1"`)
+* `:version`: Jackrabbit version to install (default: `"2.4.2"`)
 * `:installation_dir`: installation location (default: `"/usr/local/jackrabbit"`)
 * `:user`: OS user Jackrabbit will be using (default: `"jackrabbit"`)
 * `:host`: host Jackrabbit will listen on (default: `"127.0.0.1"`)
