@@ -1,5 +1,5 @@
 default[:jackrabbit] = {
-  :version          => "2.5.0",
+  :version          => "2.4.1",
   :user             => "jackrabbit",
   :installation_dir => "/usr/local/jackrabbit/",
   :host             => "127.0.0.1",
