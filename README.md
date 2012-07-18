@@ -8,7 +8,7 @@ choose installed version, OS user, host other parameters using Chef node attribu
 
 ## Jackrabbit Version
 
-This cookbook currently provides Jackrabbit version 2.4 but can be used
+This cookbook currently provides Jackrabbit version 2.4.2 but can be used
 to install other versions by overriding data bag attributes.
 
 

@@ -64,12 +64,13 @@ LOGFILE=$BASEDIR/jackrabbit.log
 
 # Uncomment to debug the script
 #set -x
+set -e
 
 do_start() {
     if [ ! -f $PIDFILE ]; then
         cd $BASEDIR
         # TODO: user switching
-        nohup java $MEMORY -jar $JACKRABBIT_JAR --repo $JACKRABBIT_REPOSITORY -h $JACKRABBIT_HOST -p $JACKRABBIT_PORT >> $LOGFILE 2>&1 && echo $! > $PIDFILE
+        su $JACKRABBIT_USER -c "nohup java $MEMORY -jar $JACKRABBIT_JAR --repo $JACKRABBIT_REPOSITORY -h $JACKRABBIT_HOST -p $JACKRABBIT_PORT >> $LOGFILE 2>&1 & echo $! > $PIDFILE"
         sleep 2
         echo "Jackrabbit started"
     else
