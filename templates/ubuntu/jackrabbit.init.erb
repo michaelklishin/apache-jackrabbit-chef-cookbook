@@ -70,8 +70,9 @@ do_start() {
     if [ ! -f $PIDFILE ]; then
         cd $BASEDIR
         # TODO: user switching
-        su $JACKRABBIT_USER -c "nohup java $MEMORY -jar $JACKRABBIT_JAR --repo $JACKRABBIT_REPOSITORY -h $JACKRABBIT_HOST -p $JACKRABBIT_PORT >> $LOGFILE 2>&1 & echo $! > $PIDFILE"
-        sleep 2
+        nohup java $MEMORY -jar $JACKRABBIT_JAR --repo $JACKRABBIT_REPOSITORY -h $JACKRABBIT_HOST -p $JACKRABBIT_PORT >> $LOGFILE 2>&1 &
+        echo $! > $PIDFILE
+        while [ -z "`curl -s http://$JACKRABBIT_HOST:$JACKRABBIT_PORT`" ] ; do sleep 1s; echo -n "."; done
         echo "Jackrabbit started"
     else
         echo "Jackrabbit is already running"
